@@ -4,9 +4,9 @@
 // 34(1,0,0) 41(1,1,0)
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
-int row = new Random().Next(2, 2);
-int column = new Random().Next(2, 2);
-int deep = new Random().Next(2, 2);
+int row = 2;
+int column = 2;
+int deep = 2;
 
 bool CompareAllElements(int[,,] array, int element)
 {
@@ -36,7 +36,7 @@ int[,,] FillMassive(int[] array)
             {
                 do
                 {
-                    massiveElement = new Random().Next(10, 20);
+                    massiveElement = new Random().Next(10, 40);
                 } while (CompareAllElements(fillMassive, massiveElement));
 
 
@@ -47,16 +47,19 @@ int[,,] FillMassive(int[] array)
     return fillMassive;
 }
 
-int[,,] table = FillMassive(new int[] { row, column, deep });
-for (int i = 0; i < row; i++)
+int[,,] massive = FillMassive(new int[] { row, column, deep });
+for (int k = 0; k < deep; k++)
 {
-    for (int j = 0; j < column; j++)
+    for (int i = 0; i < row; i++)
     {
-        for (int k = 0; k < deep; k++)
+        for (int j = 0; j < column; j++)
         {
-            Console.Write($"{table[i, j, k]}({i},{j},{k}) ");
+            Console.Write($"{massive[i, j, k]}({i},{j},{k}) ");
+
         }
         Console.WriteLine();
     }
+    Console.WriteLine();
 }
+
 
